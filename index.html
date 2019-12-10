@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>国际语言化</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.scss">
+  <style>
+  </style>
+</head>
+<body>
+  <div id="box">
+    <ul>
+      <li data-language="music">音乐</li>
+      <li data-language="basketball">篮球</li>
+      <li data-language="picture">作画</li>
+      <li data-language="calligraphy">书法</li>
+    </ul>
+    <button value="EN">中/英文</button>
+  </div>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.language.min.js"></script>
+  <script src="./language/language.js"></script>
+  <script>
+    var lang;
+      $(function () {
+        lang = $("[data-language]").localize('Language', 'CN');
+      });
+      $('button').on('click', function () {
+        if (this.value == 'CN') {
+          lang = $("[data-language]").localize('Language', this.value)
+          this.value = 'EN'
+        } else {
+          lang = $("[data-language]").localize('Language', this.value)
+          this.value = 'CN'
+        }
+      })
+  </script>
+</body>
+</html>
